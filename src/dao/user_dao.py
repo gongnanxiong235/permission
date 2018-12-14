@@ -9,7 +9,11 @@ class User:
 
     def update_user_role_id(self,user_id,role_id):
         sql='update user set role_id=%s where id=%s'
-        return self.helper.executeUpDe(sql,(user_id,role_id))
+        self.helper.executeUpDe(sql,(user_id,role_id))
+
+    def update_user_password(self,username,password):
+        sql='update user set password=%s where username=%s'
+        self.helper.executeUpDe(sql,(password,username))
 
     def is_exist_user(self,username):
         sql='select username from user where username=%s'

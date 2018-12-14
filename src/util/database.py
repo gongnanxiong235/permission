@@ -21,7 +21,7 @@ class MysqldbHelper(object):
         self.cur = None
         try:
             self.con = pymysql.connect(host=self.host, user=self.username, passwd=self.password, port=self.port,
-                                       db=self.database)
+                                       db=self.database,charset='utf8')
             # 所有的查询，都在连接 con 的一个模块 cursor 上面运行的
             self.cur = self.con.cursor()
         except:
