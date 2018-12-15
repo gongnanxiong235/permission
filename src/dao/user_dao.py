@@ -21,7 +21,7 @@ class User:
         return result
 
     def is_exist_user_password(self,username,password):
-        sql='select id,username,role_id from user where username=%s and password=%s'
+        sql='select id,username,full_name,gender,role_id from user where username=%s and password=%s'
         return self.helper.executeSelect(sql,(username,password),'one',rtype='dict')
 
 

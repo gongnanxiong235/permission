@@ -7,7 +7,7 @@ class UserService:
     def __init__(self):
         self.user=User()
 
-    def login(self,username,password):
+    def login(self,username,password,tag=0):
         try:
             is_exist_user=self.user.is_exist_user(username)
             if is_exist_user is None:
@@ -25,7 +25,8 @@ class UserService:
         except Exception as e:
             result={'code': 201, 'data': {'Exception': str(e)}}
         finally:
-            self.user.helper.close()
+            if tag!=0:
+                self.user.helper.close()
         return result
 
     def regist(self,username,password,full_name,age,gender):

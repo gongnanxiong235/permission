@@ -32,6 +32,7 @@ class MysqldbHelper(object):
 
         """
         if  self.con:
+            print('close')
             self.con.close()
         else:
             raise Exception("DataBase doesn't connect,close connectiong error;please check the db config.")
